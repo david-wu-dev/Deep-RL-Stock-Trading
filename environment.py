@@ -3,7 +3,7 @@ from gym import spaces
 import numpy as np
 
 class StockEnvironment(gym.Env):
-  def __init__(self, data_dict, indicators, stopping_day=1200):
+  def __init__(self, data_dict, indicators, stopping_day=1200, model='DQN'):
     super(StockEnvironment, self).__init__()
 
     self.balance = 100
@@ -18,7 +18,10 @@ class StockEnvironment(gym.Env):
     self.data = data_dict
     self.terminal = False
 
-    self.mapping = {0: -1, 1: -.5, 2:-.25, 3: -.1, 4: 0, 5: .1, 6: .25, 7: .5, 8: 1}
+    if model == 'DQN':
+      self.mapping = {0: -1, 1: -.5, 2:-.25, 3: -.1, 4: 0, 5: .1, 6: .25, 7: .5, 8: 1}
+    else:
+      self.mapping = {0: -.75, 1: -.5, 2:-.25, 3: -.1, 4: 0, 5: .1, 6: .25, 7: .5, 8: .75}
   
   def step(self, action_num):
     price = self.data['Close'][self.day]
