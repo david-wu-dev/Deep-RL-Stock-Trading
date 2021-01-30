@@ -11,8 +11,8 @@ Both models were trained on the first 1000 days of Apple stock (AAPL). After tra
 
 
 <div style="justify-content: center;" >
-	<img src="./results/DQN stock graph.png"/>
-	<img src="./results/AC stock graph.png" />
+	<img src="results/DQN stock graph.png"/>
+	<img src="results/AC stock graph.png" />
 </div>
 
 
