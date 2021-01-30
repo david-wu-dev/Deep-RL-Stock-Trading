@@ -11,10 +11,9 @@ Both models were trained on the first 1000 days of Apple stock (AAPL). After tra
 
 
 <div style="justify-content: center;" >
-	<img src="results/DQN stock graph.png"/>
-	<img src="results/AC stock graph.png" />
+	<img src="/results/DQN%20stock%20graph.PNG"/>
+	<img src="/results/AC%20stock%20graph.PNG" />
 </div>
-
 
 In the above graphs, the orange lines are directly related to the stock price (stock price * 367), which reflects the value of a portfolio maintained under the buy and hold strategy if $100 worth of Apple stock was bought on the first day. The blue lines show the value of the portfolio managed under the trading agents, who were also given $100 on the first day. Though the trading agents did not always outperform buying and holding a high performing stock like AAPL, they were able to drastically lower the variation in portfolio value in both cases while mostly keeping up with the stock price, ensuring that the investor would not have to worry large fluctuations in stock price. As this is one of the central risks people face in the stock market, this simple approach and relatively general models imply that it is possible to take advantage of reinforcement learning to do smarter stock investing.
 
