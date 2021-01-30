@@ -1,4 +1,11 @@
 def sma(data_dict):
+    """
+    Calculates the sma-20, sma-50, sma-200
+
+    These indicators are used for assessing general trends
+    and a comparison of the sma-50 and sma-200 is one commonly
+    used metric in stock trading
+    """
     n = len(data_dict['Close'])
     sma_20 = [0] * 19
     sma_50 = [0] * 49
@@ -28,6 +35,12 @@ def sma(data_dict):
     return sma_20, sma_50, sma_200
 
 def macd(data_dict):
+    """
+    Calculates the moving average convergence divergence (macd)
+
+    The macd is a trend following momentum indicator that can trigger
+    buying or selling when it crosses its signal line
+    """
     n = len(data_dict['Close'])
     ema_12 = [0]*12
     ema_26 = [0]*26
@@ -52,6 +65,12 @@ def macd(data_dict):
     return macd
 
 def rsi(data_dict):
+    """
+    Calculates the relative strength index (rsi)
+
+    This indicator measures the speed and change of stock prices
+    and assesses whether a stock is underbought or oversold
+    """
     n = len(data_dict['Close'])
     gain = 0
     loss = 0
@@ -89,6 +108,13 @@ def rsi(data_dict):
     return rsi
 
 def cci(data_dict, sma_20):
+    """
+    Calculates the channel commodity index (cci)
+
+    This indicator is a measure of the current stock price
+    compared to its average price over a given time and can
+    indicate when stocks are undervalued or overvalued
+    """
     n = len(data_dict['Close'])
     typical_price = []
 
@@ -107,6 +133,10 @@ def cci(data_dict, sma_20):
     return cci
 
 def get_indicators(data_dict):
+    """
+    Compiles all the indicators into a single indicators dictionary
+    and returns it
+    """
     sma_20, sma_50, sma_200 = sma(data_dict)
     macd_vals = macd(data_dict)
     rsi_vals = rsi(data_dict)

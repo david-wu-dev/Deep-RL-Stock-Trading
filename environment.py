@@ -3,6 +3,26 @@ from gym import spaces
 import numpy as np
 
 class StockEnvironment(gym.Env):
+  """
+  Environment that the models interact with
+
+  Acroynyms: 
+    sma-20: 20 day simple moving average
+    sma-50: 50 day simple moving average
+    sma-200: 200 day simple moving average
+    macd: moving average convergence divergence
+    rsi: relative strength index
+    cci: commodity channel index
+
+  State space: (balance, shares, sma-20, sma-50, sma-200, macd, rsi, cci)
+  
+  Action space: There are 9 discrete actions choices, which slightly differ 
+  between the two models and each of them result in some fraction of currently
+  held stock being sold or a fraction of the balance used to buy stock rounded
+  down to the nearest integer
+
+  Starting day is 200 to allow for sma-200 to have an actual value
+  """
   def __init__(self, data_dict, indicators, stopping_day=1200, model='DQN'):
     super(StockEnvironment, self).__init__()
 
